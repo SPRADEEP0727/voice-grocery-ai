@@ -1,0 +1,179 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Grocery List AI Design System */
+@layer base {
+  :root {
+    /* Core neutral colors */
+    --background: 0 0% 100%;
+    --foreground: 150 10% 15%;
+
+    /* Card and surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 150 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 10% 15%;
+
+    /* Brand colors - Fresh grocery theme */
+    --primary: 142 76% 36%; /* Fresh green */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 120 40% 96%;
+    --secondary-foreground: 150 10% 15%;
+
+    /* Accent colors */
+    --accent: 45 93% 47%; /* Vibrant yellow */
+    --accent-foreground: 150 10% 15%;
+
+    --muted: 120 20% 95%;
+    --muted-foreground: 150 10% 60%;
+
+    /* Status colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 45 93% 47%;
+    --warning-foreground: 150 10% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* UI elements */
+    --border: 120 20% 90%;
+    --input: 120 20% 95%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142, 76%, 36%) 0%, hsl(45, 93%, 47%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(120, 40%, 96%) 0%, hsl(45, 93%, 85%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(142, 76%, 36%) 0%, hsl(120, 60%, 40%) 50%, hsl(45, 93%, 47%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-grocery: 0 8px 25px -5px rgba(34, 197, 94, 0.3);
+  }
+
+  .dark {
+    --background: 150 15% 8%;
+    --foreground: 120 20% 95%;
+
+    --card: 150 15% 10%;
+    --card-foreground: 120 20% 95%;
+
+    --popover: 150 15% 10%;
+    --popover-foreground: 120 20% 95%;
+
+    --primary: 142 76% 45%;
+    --primary-foreground: 150 15% 8%;
+
+    --secondary: 150 15% 15%;
+    --secondary-foreground: 120 20% 95%;
+
+    --accent: 45 93% 55%;
+    --accent-foreground: 150 15% 8%;
+
+    --muted: 150 15% 15%;
+    --muted-foreground: 120 15% 65%;
+
+    --border: 150 15% 20%;
+    --input: 150 15% 15%;
+    --ring: 142 76% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-grocery {
+    box-shadow: var(--shadow-grocery);
+  }
+}
+
+/* Custom animations */
+@keyframes pulse-mic {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes recording-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+}
+
+.pulse-mic {
+  animation: pulse-mic 2s ease-in-out infinite;
+}
+
+.recording-pulse {
+  animation: recording-pulse 2s ease-in-out infinite;
+}
+
+/* Razorpay modal fixes for better interaction */
+.razorpay-checkout-frame {
+  z-index: 99999 !important;
+  position: fixed !important;
+}
+
+.razorpay-backdrop {
+  z-index: 99998 !important;
+  position: fixed !important;
+}
+
+/* Ensure Razorpay modal content is properly clickable */
+.razorpay-container * {
+  pointer-events: auto !important;
+}
+
+/* Fix for modal interaction issues */
+body.razorpay-checkout-open {
+  overflow: hidden;
+}
+
+/* Ensure proper click handling for all Razorpay elements */
+[class*="razorpay"] {
+  pointer-events: auto !important;
+}
+
+/* Fix specific interaction issues */
+.razorpay-checkout iframe {
+  pointer-events: auto !important;
+}
+
+.razorpay-checkout .razorpay-payment-modal {
+  pointer-events: auto !important;
+}

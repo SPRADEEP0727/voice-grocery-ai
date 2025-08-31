@@ -1,0 +1,27 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+
+# Build outputs
+frontend/dist/
+frontend/dist-ssr/
+*.local
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+ehthumbs.db
+
+# Backup files
+*.backup
+*.bak

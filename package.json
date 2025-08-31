@@ -1,0 +1,17 @@
+{
+  "name": "groceries-ai",
+  "version": "1.0.0",
+  "description": "Voice-Based Grocery List Builder with AI categorization",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && python run.py",
+    "build:frontend": "cd frontend && npm run build",
+    "deploy:backend": "cd backend && vercel --prod",
+    "deploy:frontend": "cd frontend && vercel --prod",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && pip install -r requirements.txt"
+  },
+  "keywords": ["voice", "grocery", "ai", "razorpay", "supabase"],
+  "author": "Your Name",
+  "license": "MIT"
+}

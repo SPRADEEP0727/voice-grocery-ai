@@ -1,0 +1,5 @@
+flask
+pyautogen
+openai
+python-dotenv
+flask-cors
