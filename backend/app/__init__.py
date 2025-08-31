@@ -15,13 +15,7 @@ if os.getenv('VERCEL_ENV') == 'production':
         '*'  # Temporary: allow all origins for testing
 else:
     # Development CORS - allow localhost
-    CORS(app, origins=[
-        'http://localhost:3000',
-        'http://localhost:5173',
-        'http://localhost:4173',
-        'http://127.0.0.1:3000',
-        'http://127.0.0.1:5173',
-        'http://127.0.0.1:4173'
-    ])
+    # CORS configuration - allow all origins for testing
+    CORS(app, origins="*")
 
 from app import routes
